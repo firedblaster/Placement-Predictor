@@ -524,7 +524,38 @@ void quiz()
 
 }
 
+void logo() {
+    // ANSI escape codes for text coloring
+    // You can customize these codes for different colors
+    const char* color_reset = "\x1b[0m";
+    const char* color_p = "\x1b[33m"; // Yellow
+    const char* color_a = "\x1b[34m"; // Blue
 
+    printf("\n"); // Top margin
+
+    // Print "P"
+    printf("%s   * * *   %s\n", color_p, color_reset);
+    printf("%s   *    * %s\n", color_p, color_reset);
+    printf("%s   * * *   %s\n", color_p, color_reset);
+    printf("%s   * %s\n", color_p, color_reset);
+    printf("%s   * %s\n", color_p, color_reset);
+    printf("%s   * %s\n", color_p, color_reset);
+    printf("%s   *      lacement \n%s", color_p, color_reset);
+
+    //printf("     "); // Space between P and A
+
+    // Print "A"
+    printf("%s      * *  %s\n", color_a, color_reset);
+    printf("%s    *     *   %s\n", color_a, color_reset);
+    printf("%s   *       *   %s\n", color_a, color_reset);
+    printf("%s   *** %s\n", color_a, color_reset);
+    printf("%s   *       *   %s\n", color_a, color_reset);
+    printf("%s   *       *   %s\n", color_a, color_reset);
+    printf("%s   *       *  Assistant  %s\n", color_a, color_reset);
+
+    printf("\n"); // Bottom margin
+
+}
 int numberofelements_column(int num,const char *d,const char *e)
 {
     FILE* fp = fopen("datafinal1.csv", "r");
@@ -1285,6 +1316,7 @@ system("start histcompanies.png");
 
 void main()
 {
+    logo();
     int j=1;
     while(j==1)
     {
