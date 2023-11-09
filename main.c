@@ -592,7 +592,7 @@ void logo() {
 
 }
 
-//Function definition to find No. of columns in the CSV file containing Placement Data. 
+//Defintion of function to find No. of columns in the CSV file containing Placement Data. 
 int numberofelements_column(int num,const char *d,const char *e)
 {
     FILE* fp = fopen("datafinal1.csv", "r"); //Opening File Header and declaring File Pointer
