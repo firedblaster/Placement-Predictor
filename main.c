@@ -592,10 +592,10 @@ void logo() {
 
 }
 
-
+//Function definition to find No. of columns in the CSV file containing Placement Data. 
 int numberofelements_column(int num,const char *d,const char *e)
 {
-    FILE* fp = fopen("datafinal1.csv", "r");
+    FILE* fp = fopen("datafinal1.csv", "r"); //Opening File Header and declaring File Pointer
 
     const char *t[172][2];
     int count=0; 	
@@ -666,6 +666,8 @@ int numberofelements_column(int num,const char *d,const char *e)
     }fclose(fp);
     }
     return count;}
+
+//
 int frequency_find(int a,const char *g)
 {
     int m=0;
@@ -704,6 +706,8 @@ int frequency_find(int a,const char *g)
     }
     return m;
 }
+
+
 void graph(int a)
 {
     FILE *gnuplotPipe = popen("gnuplot", "w");
