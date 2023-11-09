@@ -57,7 +57,7 @@ void printCenteredText(const char* text) {
 void quiz() 
 {
     printCenteredText("Welcome to My Aptitude Test");
-    const char* sector_names[7] = {"IT", "Core", "Consultancy", "E-Commerce", "Finance", "Semiconductors", "Education and Teaching"};
+    const char* sector_names[8] = {"IT", "Core", "Consultancy", "E-Commerce", "Finance", "Semiconductors", "Education and Teaching","Data Science and Analysis"};
     printf("\n");
     // Define questions in different sectors
     // Total 40 Questions, 8 Sectors, 5 Questions in each sector
