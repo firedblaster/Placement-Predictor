@@ -558,7 +558,7 @@ void quiz()
 
 }
 
-// Function definition for displaying Logo
+// Definition of function for displaying Logo
 void logo() {
 
     const char* color_reset = "\x1b[0m";
@@ -592,7 +592,7 @@ void logo() {
 
 }
 
-//Defintion of function to take column no. and Job 
+/*Definition of function that takes the total number of fields that matches given Company Name and Job*/
 int numberofelements_column(int num,const char *d,const char *e)
 {
     FILE* fp = fopen("datafinal1.csv", "r"); //Opening File Header and declaring File Pointer
@@ -667,7 +667,8 @@ int numberofelements_column(int num,const char *d,const char *e)
     }
     return count;}
 
-/*Takes the column number, and the company,job name as input and gives number of entries that company/job has in that given column. 
+
+/* Definition of function that takes the column number, and the company,job name as input and gives number of entries that company/job has in that given column. 
 This is used to get total number of events when finding the conditional probability.*/
 
 int frequency_find(int a,const char *g)
@@ -709,7 +710,7 @@ int frequency_find(int a,const char *g)
     return m;
 }
 
-
+/*Definition of function that uses GNU Plot Library to graph between*/
 void graph(int a)
 {
     FILE *gnuplotPipe = popen("gnuplot", "w");
@@ -744,6 +745,8 @@ void graph(int a)
         system("start lineplot3.png"); 
     }
 }
+
+
 void histogram(int b)
 {
     if(b==1)
@@ -1133,6 +1136,10 @@ void histogram(int b)
     // printf("\n%d",size);
 // }
 
+/*Definition of function that deals with the Probabiltiy in Placement Prediction.
+It takes input of number of records, the User input of CGPA, Branch, Skills, Months of Internship. 
+It compares with the total number of records with matching conditions and applies basics of Probability such as Total Probability and Bayes Theorem and returns final probabilty.*/
+
 float probability_final(int n,const char *skills[n],const char *branch,int mon,float cg,const char *d,const char *e)
 
 {
@@ -1257,6 +1264,7 @@ float probability_final(int n,const char *skills[n],const char *branch,int mon,f
 
 }
 
+//Definition of function that is the Menu Program for the Grapher Part of our Placement Predictor
 void grapher()
 {
     int n, m;
@@ -1269,6 +1277,10 @@ void grapher()
     graph(n);
     histogram(m);
 }
+
+
+/*Definition of function that is the Menu Program for the Prediction part of our Placement Predictor.
+It returns the probability of each Company and Job and also writes this data to probhisto.txt file.*/
 
 void predictor(float cg,const char *branch,int n,const char *skills[n],int mon)
 {
