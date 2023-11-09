@@ -928,8 +928,8 @@ void predictor(float cg,const char *branch,int n,const char *skills[n],int mon)
  	// const char *branch = "EE";
  	// const char *skills[5] = {"Python","C++","Communication-Skills","Software-in-Data-Analysis","Java"} ;
  	// int mon = 6;
-const char* unique_pairs[20][3] = {
-    {"Rutkashi_Technologies_Pvt._Ltd.", "Flutter_Developer", "IT"},
+const char* unique_pairs[18][3] = {
+    // {"Rutkashi_Technologies_Pvt._Ltd.", "Flutter_Developer", "IT"},
     {"Equbot_AI_India_Pvt._Ltd.", "Junior_Data_Scientist", "Finance/IT"},
     {"Innoplexes", "Associate_Data_Engineer", "Data_Sci"},
     {"Career_Launcher", "Teaching", "Education"},
@@ -944,7 +944,7 @@ const char* unique_pairs[20][3] = {
     {"J&F", "Structural_Engineer", "Core"},
     {"MojoCare", "Product/Business_Analyst", "Data_Sci"},
     {"Marquee_Semiconductors", "Designer/Verification_Engineer", "Semiconductors"},
-    {"DRIEMS", "Faculty-Electronics_and_Telecommunication", "Teaching"},
+    // {"DRIEMS", "Faculty-Electronics_and_Telecommunication", "Teaching"},
     {"MojoCare", "Product_Manager", "Business"},
     {"PhableCare", "Associate_Software_Engineer", "IT"},
     {"MojoCare", "SDE_(Software_Development)", "IT"},
@@ -952,7 +952,7 @@ const char* unique_pairs[20][3] = {
 };
 
 const char *data[] = {
-        "R-FlutterDev",
+        // "R-FlutterDev",
         "E-JrDataSci",
         "Inn-AssctDE",
         "CL-Teaching",
@@ -967,7 +967,7 @@ const char *data[] = {
         "J&F-StrEng",
         "MC-P/BAnlyst",
         "MD/VerEng",
-        "DRIEMS-FacyE&T",
+        // "DRIEMS-FacyE&T",
         "MC-PrdctMng",
         "PC-AssctSWEng",
         "MC-SDE(SWDev)",
@@ -975,8 +975,8 @@ const char *data[] = {
     };
 
 
-float out[20];
-for(int i=0;i<20;i++)
+float out[18];
+for(int i=0;i<18;i++)
 {
     float x;
     x=probability_final(n,skills,branch,mon,cg,unique_pairs[i][0],unique_pairs[i][1])*100;
@@ -993,7 +993,7 @@ if (fp == NULL) {
 
     
 printf("\n");
-for (int i = 0; i < 20; i++) {
+for (int i = 0; i < 18; i++) {
     fprintf(fp, "%s\t", data[i]);
     fprintf(fp, "%f\n", out[i]);
 }
