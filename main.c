@@ -778,363 +778,364 @@ void histogram(int b)
 
 // OLD VERSION OF THE FUNCTION "frequency_find"
 // int freq_find(int size,const char *a[size][2],const char *g,const char *h)
-// {
-//     int rows = size;
-//     int n = 0,m=0;
-//     int count_flutter=0,count_jds=0,count_datasci_inno=0,count_ade=0,count_teach=0,count_datasci_amway=0;
-//     int count_se_indegene=0,count_se_innoplexes=0,count_adesign=0,count_bat=0,count_mt=0,count_datasci_know=0;
-//     int count_analyst=0,count_BIM=0,count_struct=0,count_product=0,count_design_marquee=0,count_faculty=0,count_pm=0,count_ase=0,count_SDE=0,count_stud=0,count_design_silicon=0;
+/*{
+    int rows = size;
+    int n = 0,m=0;
+    int count_flutter=0,count_jds=0,count_datasci_inno=0,count_ade=0,count_teach=0,count_datasci_amway=0;
+    int count_se_indegene=0,count_se_innoplexes=0,count_adesign=0,count_bat=0,count_mt=0,count_datasci_know=0;
+    int count_analyst=0,count_BIM=0,count_struct=0,count_product=0,count_design_marquee=0,count_faculty=0,count_pm=0,count_ase=0,count_SDE=0,count_stud=0,count_design_silicon=0;
 
-//     for (int i = 0; i < rows; i++) {
-//     if (strcmp(a[i][0], "Rutkashi_Technologies_Pvt._Ltd.") == 0 && strcmp(a[i][1], "Flutter_Developer") == 0) {
-//         count_flutter++;
-//         if (count_flutter == 1) {
-//             n++;
-//         }
-//         if (strcmp(g, "Rutkashi_Technologies_Pvt._Ltd.") == 0 && strcmp(h, "Flutter_Developer") == 0) {
-//                 m = count_flutter;
-//             }
-//     }
-//     if (strcmp(a[i][0], "Equbot_AI_India_Pvt._Ltd.") == 0 && strcmp(a[i][1], "Junior_Data_Scientist") == 0) {
-//         count_jds++;
-//         if (count_jds == 1) {
-//             n++;
-//         }
-//         if (strcmp(g, "Equbot_AI_India_Pvt._Ltd.") == 0 && strcmp(h, "Junior_Data_Scientist") == 0) {
-//                 m = count_jds;
-//             }
-//     }
-//     if (strcmp(a[i][0], "Innoplexes") == 0 && strcmp(a[i][1], "Associate_Data_Engineer") == 0) {
-//         count_ade++;
-//         if (count_ade == 1) {
-//             n++;
-//         }
-//         if (strcmp(g, "Innoplexes") == 0 && strcmp(h, "Associate_Data_Engineer") == 0) {
-//                 m = count_ade;
-//             }
-//     }
-//     if (strcmp(a[i][0], "Career_Launcher") == 0 && strcmp(a[i][1], "Teaching") == 0) {
-//         count_teach++;
-//         if (count_teach == 1) {
-//             n++;
-//         }
-//         if (strcmp(g, "Career_Launcher") == 0 && strcmp(h, "Teaching") == 0) {
-//                 m = count_teach;
-//             }
-//     }
-//     if (strcmp(a[i][0], "Amway_Global_Services") == 0 && strcmp(a[i][1], "Data_Scientist") == 0) {
-//         count_datasci_amway++;
-//         if (count_datasci_amway == 1) {
-//             n++;
-//         }
-//         if (strcmp(g, "Amway_Global_Services") == 0 && strcmp(h, "Data_Scientist") == 0) {
-//                 m = count_datasci_amway;
-//             }
-//     }
-//     if (strcmp(a[i][0], "Indegene") == 0 && strcmp(a[i][1], "Software_Engineer") == 0) {
-//         count_se_indegene++;
-//         if (count_se_indegene == 1) {
-//             n++;
-//         }
-//         if (strcmp(g, "Indegene") == 0 && strcmp(h, "Software_Engineer") == 0) {
-//                 m = count_se_indegene;
-//             }
-//     }
-//     if (strcmp(a[i][0], "Innoplexes") == 0 && strcmp(a[i][1], "Software_Engineer") == 0) {
-//         count_se_innoplexes++;
-//         if (count_se_innoplexes == 1) {
-//             n++;
-//         }
-//         if (strcmp(g, "Innoplexes") == 0 && strcmp(h, "Software_Engineer") == 0) {
-//                 m = count_se_innoplexes;
-//             }
-//     }
-//     if (strcmp(a[i][0], "Silicon_Labs") == 0 && strcmp(a[i][1], "Associate_Design_Engineer") == 0) {
-//         count_adesign++;
-//         if (count_adesign == 1) {
-//             n++;
-//         }
-//         if (strcmp(g, "Silicon_Labs") == 0 && strcmp(h, "Associate_Design_Engineer") == 0) {
-//                 m = count_adesign;
-//             }
-//     }
-//     if (strcmp(a[i][0], "In2IT") == 0 && strcmp(a[i][1], "Business_Analyst_Trainee") == 0) {
-//         count_bat++;
-//         if (count_bat == 1) {
-//             n++;
-//         }
-//         if (strcmp(g, "In2IT") == 0 && strcmp(h, "Business_Analyst_Trainee") == 0) {
-//                 m = count_bat;
-//             }
-//     }
-//     if (strcmp(a[i][0], "BSCPL") == 0 && strcmp(a[i][1], "Management_Trainee") == 0) {
-//         count_mt++;
-//         if (count_mt == 1) {
-//             n++;
-//         }
-//         if (strcmp(g, "BSCPL") == 0 && strcmp(h, "Management_Trainee") == 0) {
-//                 m = count_mt;
-//             }
-//     }
-//     if (strcmp(a[i][0], "Knowdis") == 0 && strcmp(a[i][1], "Data_Scientist") == 0) {
-//         count_datasci_know++;
-//         if (count_datasci_know == 1) {
-//             n++;
-//         }
-//         if (strcmp(g, "Knowdis") == 0 && strcmp(h, "Data_Scientist") == 0) {
-//                 m = count_datasci_know;
-//             }
-//     }
-//     if (strcmp(a[i][0], "Deolitte") == 0 && strcmp(a[i][1], "Analyst") == 0) {
-//         count_analyst++;
-//         if (count_analyst == 1) {
-//             n++;
-//         }
-//         if (strcmp(g, "Deolitte") == 0 && strcmp(h, "Analyst") == 0) {
-//                 m = count_analyst;
-//             }
-//     }
-//     if (strcmp(a[i][0], "J&F") == 0 && strcmp(a[i][1], "BIM_Engineer/Detailer") == 0) {
-//         count_BIM++;
-//         if (count_BIM == 1) {
-//             n++;
-//         }
-//         if (strcmp(g, "J&F") == 0 && strcmp(h, "BIM_Engineer/Detailer") == 0) {
-//                 m = count_BIM;
-//             }
-//     }
-//     if (strcmp(a[i][0], "J&F") == 0 && strcmp(a[i][1], "Structural_Engineer") == 0) {
-//         count_struct++;
-//         if (count_struct == 1) {
-//             n++;
-//         }
-//         if (strcmp(g, "J&F") == 0 && strcmp(h, "Structural_Engineer") == 0) {
-//                 m = count_struct;
-//             }
-//     }
-//     if (strcmp(a[i][0], "MojoCare") == 0 && strcmp(a[i][1], "Product/Business_Analyst") == 0) {
-//         count_product++;
-//         if (count_product == 1) {
-//             n++;
-//         }
-//         if (strcmp(g, "MojoCare") == 0 && strcmp(h, "Product/Business_Analyst") == 0) {
-//                 m = count_product;
-//             }
-//     }
-//     if (strcmp(a[i][0], "Marquee_Semiconductors") == 0 && strcmp(a[i][1], "Designer/Verification_Engineer") == 0) {
-//         count_design_marquee++;
-//         if (count_design_marquee == 1) {
-//             n++;
-//         }
-//         if (strcmp(g, "Marquee_Semiconductors") == 0 && strcmp(h, "Designer/Verification_Engineer") == 0) {
-//                 m = count_design_marquee;
-//             }
-//     }
-//     if (strcmp(a[i][0], "DRIEMS") == 0 && strcmp(a[i][1], "Faculty-Electronics_and_Telecommunication") == 0) {
-//         count_faculty++;
-//         if (count_faculty == 1) {
-//             n++;
-//         }
-//         if (strcmp(g, "DRIEMS") == 0 && strcmp(h, "Faculty-Electronics_and_Telecommunication") == 0) {
-//                 m = count_faculty;
-//             }
-//     }
-//     if (strcmp(a[i][0], "MojoCare") == 0 && strcmp(a[i][1], "Product_Manager") == 0) {
-//         count_product++;
-//         if (count_product == 1) {
-//             n++;
-//         }
-//         if (strcmp(g, "MojoCare") == 0 && strcmp(h, "Product_Manager") == 0) {
-//                 m = count_product;
-//             }
-//     }
-//     if (strcmp(a[i][0], "PhableCare") == 0 && strcmp(a[i][1], "Associate_Software_Engineer") == 0) {
-//         count_ase++;
-//         if (count_ase == 1) {
-//             n++;
-//         }
-//         if (strcmp(g, "MojoCare") == 0 && strcmp(h, "Product_Manager") == 0) {
-//                 m = count_product;
-//             }
-//     }
-//     if (strcmp(a[i][0], "MojoCare") == 0 && strcmp(a[i][1], "SDE_(Software_Development)") == 0) {
-//         count_SDE++;
-//         if (count_SDE == 1) {
-//             n++;
-//         }
-//         if (strcmp(g, "MojoCare") == 0 && strcmp(h, "SDE_(Software_Development)") == 0) {
-//                 m = count_SDE;
-//             }
-//     }
-//     if (strcmp(a[i][0], "Byjus") == 0 && strcmp(a[i][1], "Student_Specialist") == 0) {
-//         count_stud++;
-//         if (count_stud == 1) {
-//             n++;
-//         }
-//         if (strcmp(g, "Byjus") == 0 && strcmp(h, "Student_Specialist") == 0) {
-//                 m = count_stud;
-//             }
-//     }
-//     if (strcmp(a[i][0], "Silicon_Lab") == 0 && strcmp(a[i][1], "Designer/Verification_Engineer") == 0) {
-//         count_design_silicon++;
-//         if (count_design_silicon == 1) {
-//             n++;
-//         }
-//         if (strcmp(g, "Silicon_Lab") == 0 && strcmp(h, "Designer/Verification_Engineer") == 0) {
-//                 m = count_design_silicon;
-//             }
-//     }
-// }
-//     return m;
-// }
+    for (int i = 0; i < rows; i++) {
+    if (strcmp(a[i][0], "Rutkashi_Technologies_Pvt._Ltd.") == 0 && strcmp(a[i][1], "Flutter_Developer") == 0) {
+        count_flutter++;
+        if (count_flutter == 1) {
+            n++;
+        }
+        if (strcmp(g, "Rutkashi_Technologies_Pvt._Ltd.") == 0 && strcmp(h, "Flutter_Developer") == 0) {
+                m = count_flutter;
+            }
+    }
+    if (strcmp(a[i][0], "Equbot_AI_India_Pvt._Ltd.") == 0 && strcmp(a[i][1], "Junior_Data_Scientist") == 0) {
+        count_jds++;
+        if (count_jds == 1) {
+            n++;
+        }
+        if (strcmp(g, "Equbot_AI_India_Pvt._Ltd.") == 0 && strcmp(h, "Junior_Data_Scientist") == 0) {
+                m = count_jds;
+            }
+    }
+    if (strcmp(a[i][0], "Innoplexes") == 0 && strcmp(a[i][1], "Associate_Data_Engineer") == 0) {
+        count_ade++;
+        if (count_ade == 1) {
+            n++;
+        }
+        if (strcmp(g, "Innoplexes") == 0 && strcmp(h, "Associate_Data_Engineer") == 0) {
+                m = count_ade;
+            }
+    }
+    if (strcmp(a[i][0], "Career_Launcher") == 0 && strcmp(a[i][1], "Teaching") == 0) {
+        count_teach++;
+        if (count_teach == 1) {
+            n++;
+        }
+        if (strcmp(g, "Career_Launcher") == 0 && strcmp(h, "Teaching") == 0) {
+                m = count_teach;
+            }
+    }
+    if (strcmp(a[i][0], "Amway_Global_Services") == 0 && strcmp(a[i][1], "Data_Scientist") == 0) {
+        count_datasci_amway++;
+        if (count_datasci_amway == 1) {
+            n++;
+        }
+        if (strcmp(g, "Amway_Global_Services") == 0 && strcmp(h, "Data_Scientist") == 0) {
+                m = count_datasci_amway;
+            }
+    }
+    if (strcmp(a[i][0], "Indegene") == 0 && strcmp(a[i][1], "Software_Engineer") == 0) {
+        count_se_indegene++;
+        if (count_se_indegene == 1) {
+            n++;
+        }
+        if (strcmp(g, "Indegene") == 0 && strcmp(h, "Software_Engineer") == 0) {
+                m = count_se_indegene;
+            }
+    }
+    if (strcmp(a[i][0], "Innoplexes") == 0 && strcmp(a[i][1], "Software_Engineer") == 0) {
+        count_se_innoplexes++;
+        if (count_se_innoplexes == 1) {
+            n++;
+        }
+        if (strcmp(g, "Innoplexes") == 0 && strcmp(h, "Software_Engineer") == 0) {
+                m = count_se_innoplexes;
+            }
+    }
+    if (strcmp(a[i][0], "Silicon_Labs") == 0 && strcmp(a[i][1], "Associate_Design_Engineer") == 0) {
+        count_adesign++;
+        if (count_adesign == 1) {
+            n++;
+        }
+        if (strcmp(g, "Silicon_Labs") == 0 && strcmp(h, "Associate_Design_Engineer") == 0) {
+                m = count_adesign;
+            }
+    }
+    if (strcmp(a[i][0], "In2IT") == 0 && strcmp(a[i][1], "Business_Analyst_Trainee") == 0) {
+        count_bat++;
+        if (count_bat == 1) {
+            n++;
+        }
+        if (strcmp(g, "In2IT") == 0 && strcmp(h, "Business_Analyst_Trainee") == 0) {
+                m = count_bat;
+            }
+    }
+    if (strcmp(a[i][0], "BSCPL") == 0 && strcmp(a[i][1], "Management_Trainee") == 0) {
+        count_mt++;
+        if (count_mt == 1) {
+            n++;
+        }
+        if (strcmp(g, "BSCPL") == 0 && strcmp(h, "Management_Trainee") == 0) {
+                m = count_mt;
+            }
+    }
+    if (strcmp(a[i][0], "Knowdis") == 0 && strcmp(a[i][1], "Data_Scientist") == 0) {
+        count_datasci_know++;
+        if (count_datasci_know == 1) {
+            n++;
+        }
+        if (strcmp(g, "Knowdis") == 0 && strcmp(h, "Data_Scientist") == 0) {
+                m = count_datasci_know;
+            }
+    }
+    if (strcmp(a[i][0], "Deolitte") == 0 && strcmp(a[i][1], "Analyst") == 0) {
+        count_analyst++;
+        if (count_analyst == 1) {
+            n++;
+        }
+        if (strcmp(g, "Deolitte") == 0 && strcmp(h, "Analyst") == 0) {
+                m = count_analyst;
+            }
+    }
+    if (strcmp(a[i][0], "J&F") == 0 && strcmp(a[i][1], "BIM_Engineer/Detailer") == 0) {
+        count_BIM++;
+        if (count_BIM == 1) {
+            n++;
+        }
+        if (strcmp(g, "J&F") == 0 && strcmp(h, "BIM_Engineer/Detailer") == 0) {
+                m = count_BIM;
+            }
+    }
+    if (strcmp(a[i][0], "J&F") == 0 && strcmp(a[i][1], "Structural_Engineer") == 0) {
+        count_struct++;
+        if (count_struct == 1) {
+            n++;
+        }
+        if (strcmp(g, "J&F") == 0 && strcmp(h, "Structural_Engineer") == 0) {
+                m = count_struct;
+            }
+    }
+    if (strcmp(a[i][0], "MojoCare") == 0 && strcmp(a[i][1], "Product/Business_Analyst") == 0) {
+        count_product++;
+        if (count_product == 1) {
+            n++;
+        }
+        if (strcmp(g, "MojoCare") == 0 && strcmp(h, "Product/Business_Analyst") == 0) {
+                m = count_product;
+            }
+    }
+    if (strcmp(a[i][0], "Marquee_Semiconductors") == 0 && strcmp(a[i][1], "Designer/Verification_Engineer") == 0) {
+        count_design_marquee++;
+        if (count_design_marquee == 1) {
+            n++;
+        }
+        if (strcmp(g, "Marquee_Semiconductors") == 0 && strcmp(h, "Designer/Verification_Engineer") == 0) {
+                m = count_design_marquee;
+            }
+    }
+    if (strcmp(a[i][0], "DRIEMS") == 0 && strcmp(a[i][1], "Faculty-Electronics_and_Telecommunication") == 0) {
+        count_faculty++;
+        if (count_faculty == 1) {
+            n++;
+        }
+        if (strcmp(g, "DRIEMS") == 0 && strcmp(h, "Faculty-Electronics_and_Telecommunication") == 0) {
+                m = count_faculty;
+            }
+    }
+    if (strcmp(a[i][0], "MojoCare") == 0 && strcmp(a[i][1], "Product_Manager") == 0) {
+        count_product++;
+        if (count_product == 1) {
+            n++;
+        }
+        if (strcmp(g, "MojoCare") == 0 && strcmp(h, "Product_Manager") == 0) {
+                m = count_product;
+            }
+    }
+    if (strcmp(a[i][0], "PhableCare") == 0 && strcmp(a[i][1], "Associate_Software_Engineer") == 0) {
+        count_ase++;
+        if (count_ase == 1) {
+            n++;
+        }
+        if (strcmp(g, "MojoCare") == 0 && strcmp(h, "Product_Manager") == 0) {
+                m = count_product;
+            }
+    }
+    if (strcmp(a[i][0], "MojoCare") == 0 && strcmp(a[i][1], "SDE_(Software_Development)") == 0) {
+        count_SDE++;
+        if (count_SDE == 1) {
+            n++;
+        }
+        if (strcmp(g, "MojoCare") == 0 && strcmp(h, "SDE_(Software_Development)") == 0) {
+                m = count_SDE;
+            }
+    }
+    if (strcmp(a[i][0], "Byjus") == 0 && strcmp(a[i][1], "Student_Specialist") == 0) {
+        count_stud++;
+        if (count_stud == 1) {
+            n++;
+        }
+        if (strcmp(g, "Byjus") == 0 && strcmp(h, "Student_Specialist") == 0) {
+                m = count_stud;
+            }
+    }
+    if (strcmp(a[i][0], "Silicon_Lab") == 0 && strcmp(a[i][1], "Designer/Verification_Engineer") == 0) {
+        count_design_silicon++;
+        if (count_design_silicon == 1) {
+            n++;
+        }
+        if (strcmp(g, "Silicon_Lab") == 0 && strcmp(h, "Designer/Verification_Engineer") == 0) {
+                m = count_design_silicon;
+            }
+    }
+}
+    return m;
+}
 
-// PROBABILITY CASE II
-// float hard_probability (int n,const char *skills[n],const char *branch,int mon,float cg,const char *d,const char *e)
-// {
-    // FILE* fp = fopen("datafinal.csv", "r");
- 	// int k = 0; 
-    // const char *t[172][2];
-//     int n=0;
-//     char buffer[1024];
-//     FILE *fp;
-//     fp=fopen("datafinal.csv","r");
-//     int row=0,column=0; 
-//     if (!fp)
-//         printf(COLOR_RED"Can't open file\n"); 
-//     else 
-//     {
-//         char buffer[1024];
-//         int row = 0;
-//         int column = 0;
-//         while (fgets(buffer,
-//                      1024, fp)) 
-//         {
-//             column = 0;
-//             row++;
-//             if (row == 1)
-//                 continue;
-//             char* token = strtok(buffer, ",");
-//             int temp=0, temp1=0; 
-//             while (token) 
-//             {
-//                 if(temp==1 && temp1==1)
-//                 {
-//                     temp =0;
-//                     temp1=0;
-//                 }
-//                 if (column == 2)
-//                 {
-//                     if(strcmp(token,a)==0)
-//                     {
-//                         temp = 1;                    
-//                     }                 
-//                 }
-//                 if(column == 4)
-//                 {
-//                     if(strcmp(token,b)==0)
-//                     {
-//                         temp1 = 1;                        
-//                     }
-//                 }
-//                 token = strtok(NULL, ",");
-//                 column++;
-//                 if(temp1 ==1 && temp ==1)
-//                 {
-//                     n++;
-//                 }
-//             } 
-//         } 
-//         fclose(fp);
-//     }
-//     float prob;
-//     prob = (float)freq/(float)n;
-//     return prob*100;
-//     if (!fp)
-    //     printf(COLOR_RED"Can't open file\n");
-    // else {
-    //     // Here we have taken size of
-    //     // array 1024 you can modify it
-    //     char buffer[1024];
-    //     int row = 0;
-    //     int column = 0;
-    //     while (fgets(buffer,
-    //                  1024, fp)) {
-    //         column = 0;
-    //         row++; 
-    //         // To avoid printing of column
-    //         // names in file can be changed
-    //         // according to need
-    //         if (row == 1)
-    //             continue 
-    //         // Splitting the data
-    //         char* value = strtok(buffer, ",");
- 	// 		char cmp[50],job[50];
- 	// 		int m1 = 0, m2 = 0 , m3 = 0, m4 = 0;
-    //         while (value)
-    //          {
-    //             if (column == 2) 
-    //             	strcpy(cmp,value);
-    //             if (column == 4)
-    //             	strcpy(job,value);              	
-    //             if (column == 5)
-    //             {
-    //             		float num = 0;	
-	// 					num += (int) value[0] - 48;
-	// 					num += ((int) value[2] - 48)*0.1;
-	// 					if (num >= cg - 0.5 && num <= cg+0.5);	
-	// 						m1 = 1;
-    //             }              
-    //             if (column == 6)
-    //             {
-    //             	if (!strcmp(branch,value))
-    //             	{               	
-    //             		m2 = 1;
-    //             	}         
-    //             }               
-    //             if (column == 7)
-    //             {
-    //             	if (!strcmp(skills,value) ||  !strcmp("NA",value) )
-    //             	{               	
-    //             		m3 = 1;
-    //             	}             
-    //             }               
-    //             if (column == 10)
-    //             {
-    //             		int num = 0;	
-	// 					num += (int) value[0] - 48;
-	// 					if (num >= mon - 2 && num <= mon+2)
-	// 						m4 = 1;
-    //             }               
-    //            if (m1 && m2 && m3 && m4)
-    //            {
-    //            	t[k][0] = cmp;
-    //             t[k][1] = job;
-    //             k++; 
-    //            }
-    //            value = strtok(NULL, ", ");
-    //            column++;
-    //         }
-    //     }
-    //     // Close the file
-    //     fclose(fp);
-    // }
-    // int size = k;
-    // const char *a[size][2];
-    // for(int i = 0; i < size; i++)
-    // {
-    //     printf("%s,%s\n",t[i][0],t[i][1]);      
-    // }
-    // for (int i = 0; i < size; i++)
-    // {
-    //     a[i][0] = t[i][0];
-    //     a[i][1] = t[i][1];
-    // }
-    // int q = freq_find(size,a,"MojoCare","SDE_(Software_Development)");
-    // float final;
-    // final = probability("MojoCare","SDE_(Software_Development)",q);
-    // printf("\nThe probability is %f %%",final);
-    // printf("\n%d",size);
-// }
+PROBABILITY CASE II
+float hard_probability (int n,const char *skills[n],const char *branch,int mon,float cg,const char *d,const char *e)
+{
+    FILE* fp = fopen("datafinal.csv", "r");
+ 	int k = 0; 
+    const char *t[172][2];
+    int n=0;
+    char buffer[1024];
+    FILE *fp;
+    fp=fopen("datafinal.csv","r");
+    int row=0,column=0; 
+    if (!fp)
+        printf(COLOR_RED"Can't open file\n"); 
+    else 
+    {
+        char buffer[1024];
+        int row = 0;
+        int column = 0;
+        while (fgets(buffer,
+                     1024, fp)) 
+        {
+            column = 0;
+            row++;
+            if (row == 1)
+                continue;
+            char* token = strtok(buffer, ",");
+            int temp=0, temp1=0; 
+            while (token) 
+            {
+                if(temp==1 && temp1==1)
+                {
+                    temp =0;
+                    temp1=0;
+                }
+                if (column == 2)
+                {
+                    if(strcmp(token,a)==0)
+                    {
+                        temp = 1;                    
+                    }                 
+                }
+                if(column == 4)
+                {
+                    if(strcmp(token,b)==0)
+                    {
+                        temp1 = 1;                        
+                    }
+                }
+                token = strtok(NULL, ",");
+                column++;
+                if(temp1 ==1 && temp ==1)
+                {
+                    n++;
+                }
+            } 
+        } 
+        fclose(fp);
+    }
+    float prob;
+    prob = (float)freq/(float)n;
+    return prob*100;
+    if (!fp)
+        printf(COLOR_RED"Can't open file\n");
+    else {
+        // Here we have taken size of
+        // array 1024 you can modify it
+        char buffer[1024];
+        int row = 0;
+        int column = 0;
+        while (fgets(buffer,
+                     1024, fp)) {
+            column = 0;
+            row++; 
+            // To avoid printing of column
+            // names in file can be changed
+            // according to need
+            if (row == 1)
+                continue 
+            // Splitting the data
+            char* value = strtok(buffer, ",");
+ 			char cmp[50],job[50];
+ 			int m1 = 0, m2 = 0 , m3 = 0, m4 = 0;
+            while (value)
+             {
+                if (column == 2) 
+                	strcpy(cmp,value);
+                if (column == 4)
+                	strcpy(job,value);              	
+                if (column == 5)
+                {
+                		float num = 0;	
+						num += (int) value[0] - 48;
+						num += ((int) value[2] - 48)*0.1;
+						if (num >= cg - 0.5 && num <= cg+0.5);	
+							m1 = 1;
+                }              
+                if (column == 6)
+                {
+                	if (!strcmp(branch,value))
+                	{               	
+                		m2 = 1;
+                	}         
+                }               
+                if (column == 7)
+                {
+                	if (!strcmp(skills,value) ||  !strcmp("NA",value) )
+                	{               	
+                		m3 = 1;
+                	}             
+                }               
+                if (column == 10)
+                {
+                		int num = 0;	
+						num += (int) value[0] - 48;
+						if (num >= mon - 2 && num <= mon+2)
+							m4 = 1;
+                }               
+               if (m1 && m2 && m3 && m4)
+               {
+               	t[k][0] = cmp;
+                t[k][1] = job;
+                k++; 
+               }
+               value = strtok(NULL, ", ");
+               column++;
+            }
+        }
+        // Close the file
+        fclose(fp);
+    }
+    int size = k;
+    const char *a[size][2];
+    for(int i = 0; i < size; i++)
+    {
+        printf("%s,%s\n",t[i][0],t[i][1]);      
+    }
+    for (int i = 0; i < size; i++)
+    {
+        a[i][0] = t[i][0];
+        a[i][1] = t[i][1];
+    }
+    int q = freq_find(size,a,"MojoCare","SDE_(Software_Development)");
+    float final;
+    final = probability("MojoCare","SDE_(Software_Development)",q);
+    printf("\nThe probability is %f %%",final);
+    printf("\n%d",size);
+}
+*/
 
 /*Definition of function that deals with the Probabiltiy in Placement Prediction.
 It takes input of number of records, the User input of CGPA, Branch, Skills, Months of Internship. 
@@ -1376,8 +1377,10 @@ system("start histcompanies.png");
 //Main Function
 void main()
 {
+    
     logo();
     int j=1;
+    // The While loops are to ensure that proper Input is being taken. 
     while(j==1)
     {
     printCenteredText(COLOR_YELLOW"Hi, I am PAss, your placement guide at IIT Bhubaneswar."COLOR_RESET);
@@ -1387,6 +1390,7 @@ void main()
     float cg;
     char choice[1];
     char option[1024];
+	    
     while(1)
     {
         printf("Your Choice: ");
@@ -1395,6 +1399,7 @@ void main()
             break;     
     }
     int option1 = (int)option[0] - 48;
+	    
     while(i == 1)
         {
             switch(option1)
@@ -1418,6 +1423,7 @@ void main()
         break;     
         case 2:
         i=1;
+		
         while(i == 1)
         {
             grapher();
