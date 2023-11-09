@@ -1442,13 +1442,11 @@ void main()
             num =0;
             if(isdigit(temp[0])>0 && isdigit(temp[1])==0 )	
 		    {num += (int) temp[0] - 48;
-            printf("%d",num);
             break;
             }
             if(isdigit(temp[0])>0 && isdigit(temp[1])>0)	
 		    {num += ((int) temp[0] - 48)*10;
             num += (int)temp[1]-48;
-            printf("%d",num);
             break;
             }}
 
@@ -1472,7 +1470,6 @@ void main()
             mon =0;
             if(isdigit(temp[0])>0)	
 		    {mon += (int) temp[0] - 48;
-            printf("%d",num);
             break;
             }}
         predictor(cg,branch,num,skills,mon);
