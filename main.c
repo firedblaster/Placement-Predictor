@@ -1,9 +1,11 @@
+//Header Files
 #include <conio.h>
 #include <stdio.h>
 #include <string.h>
 #include <stdlib.h>
 #include <ctype.h>
 
+//Colour Declarations
 #define COLOR_RED "\x1b[31m"
 #define COLOR_GREEN "\x1b[32m"
 #define COLOR_BLUE "\x1b[34m"
@@ -12,13 +14,14 @@
 #define COLOR_CYAN "\x1b[36m"
 #define COLOR_RESET "\x1b[0m"
 
-// Structure to represent a question
+// Data Structure introduced to represent a question
 struct Question {
     char question[256];
     char options[4][128];
     int correct_option;
 };
 
+//Function Definition to print centered text
 void printCenteredText(const char* text) {
     int length = strlen(text);
     int screenWidth = 80;  // Default screen width
@@ -50,14 +53,17 @@ void printCenteredText(const char* text) {
     printf(COLOR_GREEN "+\n");
 }
 
+//Function definition for Aptitue Test
 void quiz() 
 {
     printCenteredText("Welcome to My Aptitude Test");
-    const char* sector_names[7] = {"IT", "Core", "Consultancy", "E-Commerce", "Finance", "Semiconductors", "Education and Teaching"};
+    const char* sector_names[8] = {"IT", "Core", "Consultancy", "E-Commerce", "Finance", "Semiconductors", "Education and Teaching","Data Science and Analysis"};
     printf("\n");
     // Define questions in different sectors
+    // Total 40 Questions, 8 Sectors, 5 Questions in each sector
     struct Question questions[40];
 
+    // Intialisation of all Questions in the Aptitude Test, their options and the correct answer. 
     // Sector 1: IT
     strcpy(questions[0].question, "How do you handle remote support?");
     strcpy(questions[0].options[0], "Remote Access and Control");
@@ -111,10 +117,10 @@ void quiz()
     questions[6].correct_option = 0;
 
     strcpy(questions[7].question, "Which of the following microcontroller doesn’t match with its architecture below?");
-    strcpy(questions[7].options[0], "ARM7-Von Neumann");
-    strcpy(questions[7].options[1], "Microchip PIC–Harvard");
-    strcpy(questions[7].options[2], "ARM9–Harvard");
-    strcpy(questions[7].options[3], "MSP430–Harvard");
+    strcpy(questions[7].options[0], "ARM7 – Von Neumann");
+    strcpy(questions[7].options[1], "Microchip PIC – Harvard");
+    strcpy(questions[7].options[2], "ARM9 – Harvard");
+    strcpy(questions[7].options[3], "MSP430 – Harvard");
     questions[7].correct_option = 3;
 
     strcpy(questions[8].question, "In the system concepts, the term organization");
@@ -357,8 +363,13 @@ void quiz()
 
 
     int total_marks = 0;
-    int sector_marks[7] = {0,0,0,0,0,0,0}; // One entry for each sector
+    int sector_marks[8] = {0,0,0,0,0,0,0,0}; //Intialisation of Scores for each Sector (Min Score - 0, Max Score - 5)
 
+
+    /*Iterates through all the Questions, sector-wise.
+    If the answer is Correct, 1 mark is added to the corresponding element in the array, sector_marks.
+    Else if answer is incorrect, it ignore and proceeds in the iteration.*/ 
+    
     printf("\nSector 1\n");
     for (int i = 0; i < 5; i++) {
         printf(COLOR_CYAN"Question %d: %s\n"COLOR_RESET, i + 1, questions[i].question);
@@ -512,18 +523,42 @@ void quiz()
             printf(COLOR_RED"Incorrect. The correct answer is: %s\n"COLOR_RESET, questions[i].options[questions[i].correct_option]);
         }
     }
+	
+    printf("\nSector 8\n");
+    for (int i = 35; i < 40; i++) {
+        printf(COLOR_CYAN"Question %d: %s\n"COLOR_RESET, i + 1, questions[i].question);
+        printf("Options:\n");
+        for (int j = 0; j < 4; j++) {
+            printf(COLOR_MAGENTA"%d. %s\n"COLOR_RESET, j + 1, questions[i].options[j]);
+        }
+
+        int user_answer;
+        printf(COLOR_BLUE"Your answer (1-4): "COLOR_RESET);
+        scanf("%d", &user_answer);
+        user_answer--;
+
+        if (user_answer == questions[i].correct_option) {
+            printf(COLOR_GREEN"Correct!\n"COLOR_RESET);
+            sector_marks[7] += 1;
+            total_marks++;
+        } else {
+            printf(COLOR_RED"Incorrect. The correct answer is: %s\n"COLOR_RESET, questions[i].options[questions[i].correct_option]);
+        }
+    }
 
     // Print marks scored by the user sector-wise
-    for (int i = 0; i < 7; i++) {
+    for (int i = 0; i < 8; i++) {
         printf(COLOR_MAGENTA"%s Sector %d: Marks Scored: %d\n"COLOR_RESET, sector_names[i],i + 1, sector_marks[i]);
     }
-    printf(COLOR_YELLOW"Total Marks: %d\n"COLOR_RESET, total_marks);
+	
+    printf(COLOR_YELLOW"Total Marks: %d / 40 \n"COLOR_RESET, total_marks); //prints Total marks, which out of 40
     printf("\n");
     
     printCenteredText("Program Completed");
 
 }
 
+// Function definition for displaying Logo
 void logo() {
 
     const char* color_reset = "\x1b[0m";
@@ -556,6 +591,8 @@ void logo() {
     printf("\n"); 
 
 }
+
+
 int numberofelements_column(int num,const char *d,const char *e)
 {
     FILE* fp = fopen("datafinal1.csv", "r");
@@ -1314,6 +1351,8 @@ system("start histcompanies.png");
 
 }
 
+
+//Main Function
 void main()
 {
     logo();
@@ -1403,11 +1442,13 @@ void main()
             num =0;
             if(isdigit(temp[0])>0 && isdigit(temp[1])==0 )	
 		    {num += (int) temp[0] - 48;
+            printf("%d",num);
             break;
             }
             if(isdigit(temp[0])>0 && isdigit(temp[1])>0)	
 		    {num += ((int) temp[0] - 48)*10;
             num += (int)temp[1]-48;
+            printf("%d",num);
             break;
             }}
 
@@ -1431,6 +1472,7 @@ void main()
             mon =0;
             if(isdigit(temp[0])>0)	
 		    {mon += (int) temp[0] - 48;
+            printf("%d",num);
             break;
             }}
         predictor(cg,branch,num,skills,mon);
