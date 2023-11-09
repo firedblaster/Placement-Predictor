@@ -558,6 +558,7 @@ void quiz()
 
 }
 
+// Function definition for displaying Logo
 void logo() {
 
     const char* color_reset = "\x1b[0m";
@@ -590,6 +591,8 @@ void logo() {
     printf("\n"); 
 
 }
+
+
 int numberofelements_column(int num,const char *d,const char *e)
 {
     FILE* fp = fopen("datafinal1.csv", "r");
@@ -1348,6 +1351,8 @@ system("start histcompanies.png");
 
 }
 
+
+//Main Function
 void main()
 {
     logo();
