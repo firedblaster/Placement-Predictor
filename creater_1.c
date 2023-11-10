@@ -16,12 +16,6 @@ int main() {
     struct Data data[MAX_ROWS];
     int data_count = 0;
 
-    // Dictionary to store sector counts
-    struct {
-        char sector[MAX_STRING_LENGTH];
-        int count;
-    } sector_counts[MAX_ROWS];
-
     // Read data from the CSV file
     FILE *csv_file = fopen(csv_file_name, "r");
     if (csv_file == NULL) {
@@ -36,23 +30,28 @@ int main() {
     }
     fclose(csv_file);
 
-    // Count how many times each sector occurs
+    // Count how many times each sector occurs using an array
+    char sectors[MAX_ROWS][MAX_STRING_LENGTH];
+    int counts[MAX_ROWS] = {0};
     int unique_count = 0;
+
     for (int i = 0; i < data_count; i++) {
-        int sector_index = -1;
+        int found = 0;
+
+        // Check if the sector is already in the array
         for (int j = 0; j < unique_count; j++) {
-            if (strcmp(data[i].sector, sector_counts[j].sector) == 0) {
-                sector_index = j;
+            if (strcmp(data[i].sector, sectors[j]) == 0) {
+                counts[j]++;
+                found = 1;
                 break;
             }
         }
 
-        if (sector_index == -1) {
-            strcpy(sector_counts[unique_count].sector, data[i].sector);
-            sector_counts[unique_count].count = 1;
+        // If the sector is not found, add it to the array
+        if (!found) {
+            strcpy(sectors[unique_count], data[i].sector);
+            counts[unique_count]++;
             unique_count++;
-        } else {
-            sector_counts[sector_index].count++;
         }
     }
 
@@ -65,7 +64,7 @@ int main() {
 
     fprintf(txt_file, "Sector Count\n");
     for (int i = 0; i < unique_count; i++) {
-        fprintf(txt_file, "%s %d\n", sector_counts[i].sector, sector_counts[i].count);
+        fprintf(txt_file, "%s %d\n", sectors[i], counts[i]);
     }
     fclose(txt_file);
 
