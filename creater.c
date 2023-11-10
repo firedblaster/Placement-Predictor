@@ -11,7 +11,7 @@ struct Data {
 
 int main() {
     char csv_file_name[] = "datafinalfinalfinal.csv";
-    char txt_file_name[] = "histogramforher.txt";  // Change the output file extension to .txt
+    char txt_file_name[] = "barplotforjobs.txt";  // Change the output file extension to .txt
 
     struct Data data[MAX_ROWS];
     int data_count = 0;
@@ -25,7 +25,7 @@ int main() {
 
     char line[MAX_STRING_LENGTH];
     while (fgets(line, sizeof(line), csv_file) && data_count < MAX_ROWS) {
-        sscanf(line, "%*[^,],%*[^,],%*[^,],%255[^,],", data[data_count].sector);  // Parse the fourth column
+        sscanf(line, "%*[^,],%*[^,],%*[^,],%*[^,],%255[^,],", data[data_count].sector);  // Parse the jobs column
         data_count++;
     }
     fclose(csv_file);
