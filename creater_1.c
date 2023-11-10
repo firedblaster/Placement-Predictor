@@ -11,7 +11,7 @@ struct Data {
 
 int main() {
     char csv_file_name[] = "datafinalfinalfinal.csv";
-    char txt_file_name[] = "histogramforher.txt";  // Change the output file extension to .txt
+    char txt_file_name[] = "Barplot.txt";  // Change the output file extension to .txt
 
     struct Data data[MAX_ROWS];
     int data_count = 0;
