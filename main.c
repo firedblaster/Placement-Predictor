@@ -561,31 +561,27 @@ void quiz()
 // Definition of function for displaying Logo
 void logo() {
 
-    const char* color_reset = "\x1b[0m";
-    const char* color_p = "\x1b[33m"; 
-    const char* color_a = "\x1b[34m"; 
-
     printf("\n"); // Top margin
-    printf("+-------+/\\+-------+\n");
+    printf(COLOR_YELLOW"+-------+/\\+-------+\n"COLOR_RESET);
 
     // Print "P"
-    printf("|%s   * * *          | %s\n", color_p, color_reset);
-    printf("|%s   *    *         |%s\n", color_p, color_reset);
-    printf("|%s   * * *          |%s\n", color_p, color_reset);
-    printf("|%s   *              |%s\n", color_p, color_reset);
-    printf("|%s   *              |%s\n", color_p, color_reset);
-    printf("|%s   *              |%s\n", color_p, color_reset);
-    printf("|%s   *      lacement| \n%s", color_p, color_reset);
-    printf("+-------+--+-------+\n");
+    printf(COLOR_RED"|   * * *          | \n"COLOR_RESET);
+    printf(COLOR_RED"|   *    *         |\n"COLOR_RESET);
+    printf(COLOR_RED"|   * * *          |\n"COLOR_RESET);
+    printf(COLOR_RED"|   *              |\n"COLOR_RESET);
+    printf(COLOR_RED"|   *              |\n"COLOR_RESET);
+    printf(COLOR_RED"|   *              |\n"COLOR_RESET);
+    printf(COLOR_RED"|   *      lacement| \n"COLOR_RESET);
+    printf(COLOR_RED"+-------+--+-------+\n"COLOR_RESET);
 
-    printf("|%s    *             |%s\n", color_a, color_reset);
-    printf("|%s  *   *           |%s\n", color_a, color_reset);
-    printf("|%s *     *          |%s\n", color_a, color_reset);
-    printf("|%s *****  *         |%s\n", color_a, color_reset);
-    printf("|%s *      *         |%s\n", color_a, color_reset);
-    printf("|%s *      *         |%s\n", color_a, color_reset);
-    printf("|%s *      *ssistant |%s\n", color_a, color_reset);
-    printf("+-------+\\/+-------+\n");
+    printf(COLOR_BLUE"|    *            |\n"COLOR_RESET);
+    printf(COLOR_BLUE"|  *   *          |\n"COLOR_RESET);
+    printf(COLOR_BLUE"| *     *         |\n"COLOR_RESET);
+    printf(COLOR_BLUE"| *** ***         |\n"COLOR_RESET);
+    printf(COLOR_BLUE"| *     *         |\n"COLOR_RESET);
+    printf(COLOR_BLUE"| *     *         |\n"COLOR_RESET);
+    printf(COLOR_BLUE"| *     *ssistant |\n"COLOR_RESET);
+    printf(COLOR_YELLOW"+-------+\\/+-------+\n"COLOR_RESET);
 
 
     printf("\n"); 
